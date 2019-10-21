@@ -19,9 +19,9 @@ switch (typeRequest) {
         searchMovie(searchFor);
         break;
 
-        // case "concert-this":
-        //     searchBand(searchFor);
-        //     break;
+    case "concert-this":
+        searchBand(searchFor);
+        break;
 
         // case "do-what-it-says":
         //     runCommand();
@@ -55,12 +55,7 @@ function searchSong(searchFor) {
 };
 // function to perform movie search using axios and omdb
 function searchMovie(searchFor) {
-    if (searchFor === undefined) {
-        searchFor = "Mr. Nobody"
-        console.log("\nSince you didn't put a movie name in, I thought you might like 'Mr. Nobody'");
-        console.log(" If you haven't watched it then you should: http://www.imdb.com/title/tt0485947/");
-        console.log("It's on Amazon Prime Video!");
-    }
+
     axios.get("http://www.omdbapi.com/?t=" + searchFor + "&y=&plot=short&apikey=trilogy").then(function(response) {
         var movie = response.data;
         console.log("\nHere is the movie you requested:");
@@ -74,5 +69,18 @@ function searchMovie(searchFor) {
         console.log("Actors: " + movie.Actors);
         console.log("\n");
     });
+}
 
+function searchBand(searchFor) {
+    axios.get("https://rest.bandsintown.com/artists/" + searchFor + "/events?app_id=codingbootcamp").then(function(response) {
+        console.log("\nHere is the Artist you requested with relavant information on their upcoming tour(s):");
+        var band = response.data;
+        for (i = 0; i < band.length; i++) {
+            console.log(i);
+            console.log("Venue: " + band[i].venue.name);
+            console.log("Location: " + band[i].venue.city);
+            console.log("Date of Event: " + moment(band[i].datetime).format("LLLL"));
+            console.log("\n");
+        }
+    });
 }
