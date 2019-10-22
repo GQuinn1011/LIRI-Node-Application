@@ -31,14 +31,14 @@ npm install <package name>
 
 ### List of Features/Functions
 
-* node liri.js spotify-this-song "<song name>" 
+* node liri.js spotify-this-song `<song name>` 
   * This will show you a list of songs based on your search and will also show you:
     * Artist(s) name(s)
     * Song Name
     * Song Preview Link
     * Album Name
   
-* node liri.js movie-this "<movie name>"
+* node liri.js movie-this `<movie name>`
   * This will show you:
     * Title of the Movie
     * Year the Movie came out
@@ -49,7 +49,7 @@ npm install <package name>
     * Plot of the Movie
     * Actors in the Movie
   
-* node liri.js concert-this "<artist/band>"
+* node liri.js concert-this `<artist/band>`
   * This will show you a list of upcoming tours/concerts, along with:
     * Name of the Venue
     * Location of the Venue
